@@ -1,7 +1,7 @@
 {
   "name": "airplay",
   "description": "Apple AirPlay client library",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ben Vanik <ben.vanik@gmail.com>",
   "contributors": [],
   "repository": {
