@@ -19,7 +19,7 @@
   },
   "main": "./lib/airplay",
   "dependencies": {
-    "plist": "https://github.com/benvanik/node-plist/tarball/master",
+    "plist": ">=0.2.1",
     "mdns": "https://github.com/benvanik/node_mdns/tarball/master"
   },
   "scripts": {
