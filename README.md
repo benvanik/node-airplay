@@ -61,10 +61,10 @@ Create a browser using the `createBrowser` method:
 Attach to the browser events to track device discovery:
 
     browser.on('deviceOnline', function(device) {
-      // store device off
+      console.log('device online: ' + device.id);
     });
-    browser.on('deviceOffline', functino(device) {
-      // stop caching the device
+    browser.on('deviceOffline', function(device) {
+      console.log('device offline: ' + device.id);
     });
 
 Start or stop the discovery process:
@@ -77,7 +77,7 @@ maintaining your own via the events:
 
     function myHandler() {
       var devices = browser.getDevices();
-      // do something with the list of devices
+      console.log(devices);
     }
 
 ### Device
@@ -89,14 +89,16 @@ asynchronous.
 
 Obtain devices using the browser API:
 
-    var device = browser.getDevices()[0];
-    // all devices that come out of getDevices are already ready
+    // Get all ready devices
+    var allDevices = browser.getDevices();
+    // Grab a device to play with
+    var device = allDevices[0];
 
 *TODO* At some point, you'll be able to connect directly:
 
     var device = require('airplay').connect('hostname', port);
     device.on('ready', function() {
-      // ready to accept commands
+      // Ready to accept commands
     });
 
 If you are done with the device, close the connection (note that this will stop
@@ -104,8 +106,11 @@ any playback):
 
     device.close();
 
-Issue various device control calls:
+Issue various device control calls. All calls are asynchronous and have an
+optional callback that provides the result - for most, it's an empty object if
+the call was successful and null if the call failed.
 
+    // Get the current playback status
     device.getStatus(function(res) {
       // res = {
       //   duration: number, -- in seconds
@@ -113,46 +118,36 @@ Issue various device control calls:
       //   rate: number, -- 0 = paused, 1 = playing
       //   ...
       // }
+      // or, if nothing is playing, res = {}
     });
 
+    // Play the given content (audio/video/etc)
     var content = 'http://host/content.mp4';
     var startPosition = 0; // in seconds
     device.play(content, startPosition, function(res) {
       if (res) {
         // playing
+      } else {
+        // failed to start playback
       }
     });
 
-    device.stop(function(res) {
-      if (res) {
-        // stopped
-      }
-    });
+    // Stop playback and return to the main menu
+    device.stop();
 
+    // Seek to the given offset in the media (if seek is supported)
     var position = 500; // in seconds
-    device.scrub(position, function(res) {
-      if (res) {
-        // seeked
-      }
-    })
+    device.scrub(position);
 
+    // Reverse playback direction (rewind)
     // NOTE: may not be supported
-    device.reverse(function(res) {
-      if (res) {
-        // reversed
-      }
-    });
+    device.reverse();
 
+    // Change the playback rate
+    // NOTE: only 0 and 1 seek to be supported for most media types
     var rate = 0; // 0 = pause, 1 = resume
-    device.rate(rate, function(res) {
-      if (res) {
-        // rate changed
-      }
-    });
+    device.rate(rate);
 
+    // Adjust playback volume
     // NOTE: may not be supported
-    device.volume(value, function(res) {
-      if (res) {
-        // volume changed
-      }
-    });
+    device.volume(value);
