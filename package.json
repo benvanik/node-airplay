@@ -1,0 +1,31 @@
+{
+  "name": "airplay",
+  "description": "Apple AirPlay client library",
+  "version": "0.0.1",
+  "author": "Ben Vanik <ben.vanik@gmail.com>",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/benvanik/node-airplay.git"
+  },
+  "keywords": [
+    "apple",
+    "mac",
+    "media",
+    "airplay"
+  ],
+  "directories": {
+    "lib": "./lib/airplay"
+  },
+  "main": "./lib/airplay",
+  "dependencies": {
+    "plist": "https://github.com/benvanik/node-plist/tarball/master",
+    "mdns": "https://github.com/benvanik/node_mdns/tarball/master"
+  },
+  "scripts": {
+  },
+  "engines": {
+    "node": ">= 0.5.x"
+  },
+  "devDependencies": {}
+}
