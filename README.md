@@ -29,6 +29,7 @@ Coming soon (maybe):
           }
         });
       });
+    > browser.start();
 
 ## Installation
 
