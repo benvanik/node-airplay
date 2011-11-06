@@ -44,6 +44,14 @@ node-airplay depends on both
 node_mdns is woefully out of date and has required many tweaks to get working,
 resulting in [a fork](https://github.com/benvanik/node_mdns).
 
+If you're running node on FreeBSD (or maybe Linux) you may get errors during
+install about a missing dns_sd.h file. If so, install the Apple mDNS SDK:
+
+    wget http://www.opensource.apple.com/tarballs/mDNSResponder/mDNSResponder-333.10.tar.gz
+    tar zxvf mDNSResponder-333.10.tar.gz
+    cd mDNSResponder-333.10/mDNSPosix/
+    sudo gmake os=freebsd install
+
 ## API
 
 ### Browser
