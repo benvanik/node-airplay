@@ -6,10 +6,12 @@ node-airplay is a client library for Apple's
 It implements a simple AirPlay device browser using mdns and command interface.
 
 Currently supported features:
+
 * AirPlay device discovery
 * Support for audio and video playback
 
 Coming soon (maybe):
+
 * Photo playback
 * Robust error handling
 * Better device information formatting (supported features/etc)
