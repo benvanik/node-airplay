@@ -20,16 +20,9 @@ Coming soon (maybe):
 
     npm install airplay
     node
-    > var airplay = require('airplay');
-    > var browser = airplay.createBrowser();
+    > var browser = require('airplay').createBrowser();
     > browser.on('deviceOnline', function(device) {
-        device.play('http://host/somevideo.mp4', 0, function(res) {
-          if (res) {
-            console.log('playing!');
-          } else {
-            console.log('unable to play!');
-          }
-        });
+        device.play('http://host/somevideo.mp4', 0);
       });
     > browser.start();
 
@@ -99,7 +92,7 @@ Obtain devices using the browser API:
 
 *TODO* At some point, you'll be able to connect directly:
 
-    var device = require('airplay').connect('hostname', port);
+    var device = require('airplay').connect(deviceHost);
     device.on('ready', function() {
       // Ready to accept commands
     });
@@ -147,7 +140,7 @@ the call was successful and null if the call failed.
     device.reverse();
 
     // Change the playback rate
-    // NOTE: only 0 and 1 seek to be supported for most media types
+    // NOTE: only 0 and 1 seem to be supported for most media types
     var rate = 0; // 0 = pause, 1 = resume
     device.rate(rate);
 
