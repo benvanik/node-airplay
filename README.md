@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/benvanik/node-airplay.png)](http://travis-ci.org/benvanik/node-airplay)
 node-airplay -- AirPlay client library for node.js
 ====================================
 
