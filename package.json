@@ -1,7 +1,7 @@
 {
   "name": "airplay",
   "description": "Apple AirPlay client library",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Ben Vanik <ben.vanik@gmail.com>",
   "contributors": [],
   "repository": {
@@ -20,7 +20,7 @@
   "main": "./lib/airplay",
   "dependencies": {
     "plist": ">=0.2.1",
-    "mdns": "https://github.com/benvanik/node_mdns/tarball/master"
+    "mdns": ">=0.0.7"
   },
   "scripts": {
   },
