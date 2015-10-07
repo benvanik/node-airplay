@@ -57,7 +57,7 @@ install about a missing dns_sd.h file. If so, install the Apple mDNS SDK:
 ### Browser
 
 The browser is a discovery service that can be run to automatically detect the
-AirPlay-compatiable devices on the local network(s). Try only to create one
+AirPlay-compatible devices on the local network(s). Try only to create one
 browser per node instance, and if it's no longer needed stop it.
 
 Create a browser using the `createBrowser` method:
