@@ -16,16 +16,16 @@ Coming soon (maybe):
 * Robust error handling
 * Better device information formatting (supported features/etc)
 
-## Quickstart
+## Example
 
-```console
-npm install airplay --save
-node
-> var browser = require('airplay').createBrowser();
-> browser.on('deviceOnline', function(device) {
-    device.play('http://host/somevideo.mp4', 0);
-  });
-> browser.start();
+```js
+const browser = require('airplay').createBrowser();
+
+browser.on('deviceOnline', (device) => {
+  device.play('http://host/somevideo.mp4', 0);
+});
+
+browser.start();
 ```
 
 ## Installation
